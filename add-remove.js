@@ -126,7 +126,7 @@ function addNewRow() {
     deleteButton.innerHTML = '<img style="width: 20px;height: 20px" src="images/trash.png" />';
     deleteButton.addEventListener('click', function (event) {
         const clickedButton = event.target;
-        const row = clickedButton.parentNode.parentNode;
+        const row = clickedButton.parentNode;
         const table = row.parentNode;
         table.removeChild(row);
     });
