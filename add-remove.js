@@ -121,12 +121,12 @@ function addNewRow() {
             selectBien.options[selectBien.options.length] = new Option(z[i], z[i].split(" - ")[0]);
         }
     }
-
+    const rowId = `row${clickCount}`
     const deleteButton = document.createElement('button');
     deleteButton.innerHTML = '<img style="width: 20px;height: 20px" src="images/trash.png" />';
     deleteButton.addEventListener('click', function (event) {
         const clickedButton = event.target;
-        const row = clickedButton.parentNode;
+        const row = document.getElementById(rowId);
         const table = row.parentNode;
         table.removeChild(row);
     });
@@ -143,6 +143,7 @@ function addNewRow() {
     newRow.appendChild(estatalCell);
     newRow.appendChild(estatalMunicipalCell);
     newRow.appendChild(deleteButton);
+    newRow.id = rowId;
     // Append the new row to the table body
     tableBody.appendChild(newRow);
     clickCount++;
